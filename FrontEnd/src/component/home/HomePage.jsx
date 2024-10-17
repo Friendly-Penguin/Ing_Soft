@@ -130,7 +130,7 @@ function HomePage(){
 
             {/* Visualizzazione delle domande della categoria espansa */}
             {expandedCategory && (
-                <div className="questions-wrapper" style={{ marginTop: '20px' }}>
+                <div className="questions-wrapper">
                     <h2 style={{marginBottom: '10px'}}>Domande per la categoria: {expandedCategory}</h2>
                     <ul>
                         {filteredQuestions[expandedCategory].map((question) => (

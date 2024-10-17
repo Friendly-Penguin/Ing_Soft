@@ -47,35 +47,34 @@ function LoginPage(){
 
         <div className="login-container">
            <div className="wrapper">
-           
-           <form onSubmit={handleSubmit}>
                 <div className="testata">
-                <a href="/FAQ"> <FaArrowLeft className="icon"/></a>
-                    <h1>Accedi</h1>
+                    <a href="/FAQ"> <FaArrowLeft /></a>
+                        <h1>Accedi</h1>
                 </div>
-                <div className="input-box">
-                <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="Email"
-                    required
-                />
-                <MdEmail className="icon" />
-                </div>
-                <div className="input-box">
-                <input
-                    type="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    placeholder="Password"
-                    required
-                />
-                <FaKey className="icon" />
-                </div>
+                
+                <form onSubmit={handleSubmit}>
+                    <div className="input-box">
+                        <input
+                            type="email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            placeholder="Email"
+                            required/>
+                        <MdEmail className="icon" />
+                        
+                    </div>
+                    <div className="input-box">
+                        <input
+                            type="password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            placeholder="Password"
+                            required/>
+                        <FaKey className="icon" />
+                    </div>
 
-                <button type="submit">Login</button>
-            </form>
+                        <button type="submit">Login</button>
+                </form>
             
             <div className="error">
                 {error && <p className="error-message">{error}</p>}

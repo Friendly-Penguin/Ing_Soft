@@ -10,7 +10,7 @@ import AddQuestion from './component/home/AddQuestion';
 function App() {
   const location = useLocation();
   return (
-    <div className="App" style={{width: '100%', height: '100%'}}>
+    <div className="App">
       {/* Mostra la Navbar solo se il percorso non è "/login" o "/register" */}
       {location.pathname !== '/login' && location.pathname !== '/register'  && <Navbar />}
 

@@ -98,69 +98,11 @@
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Colore di sfondo quando selezionato */
   }
   
-  .faq-table-wrapper {
-    display: flex;
-    justify-content: center;
+  .questions-wrapper{
+    margin-top: 20px;
+    margin-left: 20px;
   }
-  
-  .faq-table {
-    width: 70%;
-    border-collapse: collapse;
-    font-family: Arial, sans-serif;
-    margin: 0 auto;
-  }
-  
-  .faq-table th, .faq-table td {
-    padding: 10px;
-    text-align: left;
-    border-bottom: 2px solid #ddd;
-  }
-  
-  .faq-category-row {
-    cursor: pointer;
-    background-color: #f9f9f9;
-    border-bottom: 1px solid #ddd;
-    transition: background-color 0.2s ease;
-  }
-  
-  .faq-category-row:hover {
-    background-color: #f1f1f1;
-  }
-  
-  .faq-action {
-    text-align: right;
-  }
-  
-  .faq-content-cell {
-    padding: 0;
-    background-color: #fff;
-  }
-  
-  .question-content {
-    overflow: hidden;
-    height: 0; /* Altezza chiusa */
-    transition: height 0.3s ease; /* Transizione sull'altezza */
-  }
-  
-  .question-content.expanded {
-    height: auto; /* Espande l'altezza per mostrare le domande */
-  }
-  
-  .faq-table ul {
-    padding-left: 20px;
-    list-style-type: disc;
-    margin: 10px 0;
-  }
-  
-  .faq-table ul li {
-    margin-bottom: 10px;
-  }
-  
-  .faq-table ul li strong {
-    display: block; /* Forza il titolo a essere su una riga separata */
-    margin-bottom: 5px; /* Aggiunge un po' di spazio tra il titolo e il contenuto */
-  }
-  
+
   /* Casella di ricerca */
   .search-wrapper {
     text-align: center;
