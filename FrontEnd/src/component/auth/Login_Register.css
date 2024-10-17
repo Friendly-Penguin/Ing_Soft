@@ -1,0 +1,153 @@
+/* STYLING FOR LOGIN and REGISTER PAGE */
+
+.login-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url('/public/assets/images/login_register_background.jpeg') no-repeat;
+    background-size: cover;
+    background-position: center;
+  
+  }
+  
+  .wrapper{
+    width: 420px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    backdrop-filter: blur(30px);
+    color: white;
+    border-radius: 10px;
+    padding: 30px 40px;
+  }
+  
+  .wrapper .testata{
+    display: flex;
+    align-items: center;
+    
+  }
+  
+  .wrapper .testata h1{
+    font-size: 36px;
+    text-align: center;
+    padding-left: calc(25% + 25px);
+  }
+  
+  .wrapper .testata .H1_title{
+    padding-left: calc(25% + 5px);
+  }
+  
+  .wrapper .testata a{
+    font-size: 25px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    float: left;
+  }
+  
+  .wrapper .input-box{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
+  }
+  
+  .input-box input{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    outline: none;
+    border: 2px solid rgba(255,255,255, .2);
+    border-radius: 40px;
+    font-size: 16px;
+    color: white;
+    padding: 20px 45px 20px 20px;
+  }
+  
+  .input-box input::placeholder{
+    color: white;
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .input-box .icon{
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 16px;
+  }
+  
+  .wrapper button{
+    width: 100%;
+    height: 45px;
+    background-color: #ffffff;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+    font-weight: 700;
+    transition: background-color 0.2s ease-in;
+  }
+
+  .wrapper button:enabled {
+    background: #fff; /* Colore del bottone abilitato */
+    color: #333;        /* Colore del testo del bottone abilitato */
+    cursor: pointer;      /* Cambia il cursore quando il bottone è abilitato */
+    opacity: 1;            
+  }
+
+  .wrapper button:hover {
+    background-color: rgba(203, 208, 212, 0.836);             
+  }
+
+  .wrapper button:disabled {
+    background-color: #cccccc; /* Colore del bottone disabilitato */
+    color: #666666;           /* Colore del testo del bottone disabilitato */
+    cursor: not-allowed;      /* Cambia il cursore quando il bottone è disabilitato */
+    opacity: 0.6;             /* Riduce l'opacità del bottone disabilitato */
+  }
+  
+  .wrapper .error{
+    padding-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(168, 7, 7);
+  }
+  
+  .wrapper .confirm{
+    padding-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(7, 168, 7);
+  }
+  
+  
+  .wrapper .register-link{
+    font-size: 14.5px;
+    text-align: center;
+    margin: 20px 0 15px;
+  }
+  
+  .register-link p a{
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  
+  .register-link p a:hover{
+    text-decoration: underline;
+  }
+  
+  /* END STYLING FOR LOGIN and REGISTER PAGE */
+  
+  
+  

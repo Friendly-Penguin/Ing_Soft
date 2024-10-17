@@ -1,0 +1,25 @@
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+}
+
+html, body {
+  overflow: auto;
+  height: 100%;
+}
+
+
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Imposto l'altezza minima a 100% dell'altezza della finestra */
+}
+
+
+
+
+
+
+

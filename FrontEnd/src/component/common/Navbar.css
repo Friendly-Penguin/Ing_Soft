@@ -1,0 +1,54 @@
+/* SETTINGS FOR NAVBAR */
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 10px 10px 10px;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 20px;
+    height: calc(15% - 35px);
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+}
+.navbar .navObj {
+  width: 200px;
+  text-align: center;
+}
+.navbar img{
+  float: left;
+  width: 200px;
+  align-items: center;
+  justify-items: center;
+}
+
+.navbar .last-section{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.navbar a{
+  font-size: 25px;
+  color: black;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease-in;
+
+}
+
+.navbar a:hover{
+  color: violet;
+}
+
+.navbar .logout{
+  font-size: 25px;
+  color: black;
+  transition: color 0.2s ease-in;
+}
+.navbar .logout:hover{
+  color: violet;
+  cursor: pointer;
+}
+
+/* END STYLING FOR NAVBAR */
