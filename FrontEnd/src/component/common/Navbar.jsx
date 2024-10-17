@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import ApiService from "../../service/ApiService";
 import "./Navbar.css";
 
@@ -21,7 +21,7 @@ function Navbar(){
         }
     }
 
-
+    const location = useLocation();
     return (
         <nav className="navbar">
           
@@ -33,8 +33,25 @@ function Navbar(){
           </div>
       
           <div className="navObj">
-            {(isUser || !isAuthenticated) && <h1>FAQ</h1>}
-            {isAdmin && <h1>ADMIN</h1>}
+            {/* Mostra FAQ se sei su / o /FAQ e sei un utente */}
+            {(location.pathname === '/FAQ' || location.pathname === '/') && (isUser || !isAuthenticated) && (
+            <h1>FAQ</h1>
+            )}
+
+            {/* Mostra ADMIN se l'utente è un admin e non si trova su /FAQ o / */}
+            {isAdmin && (
+            <h1>ADMIN</h1>
+            )}
+
+            {/* Mostra TICKET se l'utente si trova su /add */}
+            {isUser && location.pathname === '/ticket' && (
+            <h1>NUOVO TICKET</h1>
+            )}
+
+            {/* Mostra PROFILO per percorso /profile */}
+            {!isAdmin  && location.pathname === '/profile' && (
+            <h1>PROFILO</h1>
+            )}
           </div>
           
 

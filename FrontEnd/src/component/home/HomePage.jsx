@@ -80,7 +80,7 @@ function HomePage(){
                 navigate('/login');
             }
         }else
-            navigate('/addQuestion');
+            navigate('/ticket');
     }
 
     return (

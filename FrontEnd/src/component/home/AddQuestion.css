@@ -1,0 +1,35 @@
+.content{
+    display: flex;
+    justify-content: center;
+}
+
+
+.add-question-wrapper{
+    width: 420px;
+    background: whitesmoke;
+    border: 2px solid rgb(24 24 24 / 32%);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    backdrop-filter: blur(30px);
+    color: #000000;
+    border-radius: 10px;
+    padding: 30px 40px;
+    margin-top: 20px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 300px
+}
+
+.title{
+    padding: 10px;
+    font-size: 16px;
+}

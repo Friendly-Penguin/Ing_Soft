@@ -22,7 +22,7 @@ function App() {
           <Route exact path='/FAQ' element={<HomePage />} />
           <Route exact path='/login' element={<LoginPage />} />
           <Route exact path='/register' element={<RegisterPage />} />
-          <Route exact path='/addQuestion' element={<AddQuestion />} />
+          <Route exact path='/ticket' element={<AddQuestion />} />
         </Routes>
       </div>
       

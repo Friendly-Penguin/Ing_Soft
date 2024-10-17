@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import ApiService from '../../service/ApiService'; // Importa ApiService
+import "./AddQuestion.css";
 
 const AddQuestion = () => {
     // Definizione dell'array di categorie
@@ -14,11 +15,11 @@ const AddQuestion = () => {
     const location = useLocation();
     const navigate = useNavigate();
     const from = location.state?.from?.pathname || '/FAQ';
-    
-
     // Stati per memorizzare i dati del form
     const [title, setTitle] = useState("");
     const [selectedCategory, setSelectedCategory] = useState("");
+
+    
 
     // Funzione per gestire il submit del form
     const handleSubmit = async (e) => {
@@ -50,28 +51,25 @@ const AddQuestion = () => {
     };
 
     return (
-        <div className="add-question-wrapper" style={{ padding: "20px" }}>
+        <div className="add-question-wrapper">
             <h2>Inserisci una nuova domanda</h2>
-            <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "10px", width: "300px" }}>
+            <form onSubmit={handleSubmit} className="form">
                 {/* Campo di testo per il titolo della domanda */}
                 <label htmlFor="title">Titolo della domanda:</label>
                 <input 
                     type="text" 
-                    id="title" 
+                    className="title" 
                     value={title} 
                     onChange={(e) => setTitle(e.target.value)} 
                     placeholder="Inserisci il titolo" 
-                    style={{ padding: "10px", fontSize: "16px" }} 
-                />
+                    maxLength="300"/>
                 
                 {/* Menu a tendina per selezionare la categoria */}
                 <label htmlFor="category">Seleziona la categoria:</label>
                 <select 
-                    id="category" 
+                    className="title"
                     value={selectedCategory} 
-                    onChange={(e) => setSelectedCategory(e.target.value)} 
-                    style={{ padding: "10px", fontSize: "16px" }}
-                >
+                    onChange={(e) => setSelectedCategory(e.target.value)} >
                     <option value="">-- Seleziona una categoria --</option>
                     {categories.map((category, index) => (
                         <option key={index} value={category}>{category}</option>
