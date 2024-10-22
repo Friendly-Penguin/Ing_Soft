@@ -6,6 +6,7 @@ import HomePage from './component/home/HomePage';
 import LoginPage from './component/auth/LoginPage';
 import RegisterPage from './component/auth/RegisterPage';
 import AddQuestion from './component/home/AddQuestion';
+import Profile from './component/profile/Profile';
 
 function App() {
   const location = useLocation();
@@ -23,6 +24,7 @@ function App() {
           <Route exact path='/login' element={<LoginPage />} />
           <Route exact path='/register' element={<RegisterPage />} />
           <Route exact path='/ticket' element={<AddQuestion />} />
+          <Route exact path='/profile' element={<Profile />} />
         </Routes>
       </div>
       

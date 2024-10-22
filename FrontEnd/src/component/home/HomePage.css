@@ -7,6 +7,7 @@
   
   .home{
     margin: 10px 10px 10px 10px;
+    width: 60%;
   }
   
   .home .introduzione{
@@ -58,7 +59,7 @@
   }
   
   .add-wrapper button:hover{
-    color: violet;
+    color: var(--link);
   }
   
   .contenitore{
@@ -93,6 +94,10 @@
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
   }
 
+  .categories-obj:hover{
+    background-color: #f0f0f0;
+  }
+
   .categories-obj.active {
     background-color: #f0f0f0;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Colore di sfondo quando selezionato */
@@ -101,6 +106,10 @@
   .questions-wrapper{
     margin-top: 20px;
     margin-left: 20px;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: left;
   }
 
   /* Casella di ricerca */

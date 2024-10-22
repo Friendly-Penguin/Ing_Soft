@@ -24,12 +24,11 @@ function HomePage(){
         'COVID 19': <FaHeadSideMask />,
       };
 
-    useEffect(() => {
+    
         const fetchQuestions = async () => {
             try {
                 const response = await ApiService.getAllAnsweredQuestion(); // Chiamata che restituisce tutte le domande con risposta
                 const allQuestions = response.questionDTOList;
-                console.log(allQuestions)
 
                 // Raggruppo le domande per categoria
                 const categorizedQuestions = allQuestions.reduce((acc, question) => {
@@ -42,12 +41,12 @@ function HomePage(){
                 }, {});
                 
                 setQuestions(categorizedQuestions); // Impostato con domande raggruppate per categoria
-                console.log(categorizedQuestions);
             } catch (error) {
                 console.error('Error fetching questions:', error.message);
             }
         };
-
+    
+    useEffect(() => {
         fetchQuestions();
     }, []);
 

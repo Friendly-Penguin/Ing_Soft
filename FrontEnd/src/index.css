@@ -12,6 +12,10 @@ code {
     monospace;
 }
 
+:root{
+  --link: rgb(42, 45, 236);
+}
+
 
 
 

@@ -50,7 +50,7 @@ export default class ApiService{
 
     /* This is used to retrive all the question made by a specific user */
     static async getAllUserQuestion(userID){
-        const result = await axios.get(`/user/user-question/${userID}`, {headers: this.getHeader()})
+        const result = await axios.get(`/FAQ/question/${userID}`, {headers: this.getHeader()})
         return result.data
     }
 

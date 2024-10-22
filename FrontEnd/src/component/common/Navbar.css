@@ -26,6 +26,7 @@
   display: flex;
   flex-direction: row;
   gap: 10px;
+  justify-content: center;
 }
 
 .navbar a{
@@ -38,7 +39,7 @@
 }
 
 .navbar a:hover{
-  color: violet;
+  color: var(--link);
 }
 
 .navbar .logout{
@@ -48,7 +49,7 @@
   transition: color 0.2s ease-in;
 }
 .navbar .logout:hover{
-  color: violet;
+  color: var(--link);
   cursor: pointer;
 }
 
