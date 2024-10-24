@@ -23,13 +23,23 @@ function Navbar(){
 
     const location = useLocation();
     return (
+
+      <div className="navContainer">
+
         <nav className="navbar">
           
           <div className="navObj">
             {/* Link all'home page tramite il logo */}
+            {(isUser || !isAuthenticated) && (
             <NavLink to="/FAQ" activeclassname="active">
               <img src="/assets/images/logo.png" alt="Logo"/>
             </NavLink>
+            )}
+            {isAdmin && (
+            <NavLink to="/AdminHome" activeclassname="active">
+              <img src="/assets/images/logo.png" alt="Logo"/>
+            </NavLink>
+            )}
           </div>
       
           <div className="navObj">
@@ -66,10 +76,6 @@ function Navbar(){
                   <NavLink to="/profile" activeclassname="active">Profilo</NavLink>
                 )}
 
-                {isAdmin && (
-                  <NavLink to="/admin" activeclassname="active">Admin</NavLink>
-                )}
-
                 {isAuthenticated && 
                   <h1 className="logout" onClick={handleLogout}>Logout</h1>
                 }
@@ -79,7 +85,21 @@ function Navbar(){
           </div>
 
           </nav>
-          
+
+          {isAdmin &&(
+                <nav className="adminNav">
+                      <NavLink to="/openTicket" activeclassname="active">Ticket Aperti</NavLink>
+                      <span className="separator">|</span> {/* Barra separatrice */}
+                      <NavLink to="/addAdmin" activeclassname="active">Domande - FAQ</NavLink>
+                      <span className="separator">|</span> {/* Barra separatrice */}
+                      <NavLink to="/allUser" activeclassname="active">Utenti</NavLink>
+                      <span className="separator">|</span> {/* Barra separatrice */}
+                      <NavLink to="/addAdmin" activeclassname="active">Nuovo Admin</NavLink>
+                </nav>
+          )}
+
+    </div>
+        
       );
 
 }export default Navbar;

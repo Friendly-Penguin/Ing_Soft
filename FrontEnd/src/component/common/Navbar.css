@@ -1,6 +1,14 @@
 /* SETTINGS FOR NAVBAR */
+.navContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  flex-direction: column;
+}
 
 .navbar{
+  width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -52,5 +60,42 @@
   color: var(--link);
   cursor: pointer;
 }
+
+
+/* SEZIONE ADMIN */
+
+
+.adminNav{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-content: center;
+  align-items: center;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  background-color: gainsboro;
+  width: 100%;
+  padding: 10px 0px;
+}
+
+.adminNav a{
+  font-size: 25px;
+  color: black;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.adminNav a:hover{
+  color: var(--link);
+  text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+.adminNav .separator {
+  margin: 0 10px;
+  color: #444343; /* Colore della barra */
+  font-size: 20px; /* Dimensione della barra */
+}
+
+
+
 
 /* END STYLING FOR NAVBAR */

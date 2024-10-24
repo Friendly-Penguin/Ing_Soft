@@ -13,7 +13,8 @@ function LoginPage(){
     const navigate = useNavigate();
     const location = useLocation();
 
-    const from = location.state?.from?.pathname || '/FAQ';
+    const fromUser = location.state?.from?.pathname || '/FAQ';
+    const fromAdmin = '/AdminHome';
 
     const handleSubmit = async(e) => {
         e.preventDefault();
@@ -32,7 +33,12 @@ function LoginPage(){
                 localStorage.setItem('token', response.token);
                 localStorage.setItem('role', response.role);
                 localStorage.setItem('userID', response.userID);
-                navigate(from, { replace: true });
+                
+                if(response.role === 'USER'){
+                    navigate(fromUser, { replace: true });
+                }
+                else
+                    navigate(fromAdmin, { replace: true });
             }
 
         }catch(error){

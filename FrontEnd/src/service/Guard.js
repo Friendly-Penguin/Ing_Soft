@@ -8,7 +8,7 @@ export const ProtectedRoute = ({element: Component}) =>{
     return ApiService.isAuthenticated() ?(
         Component
     ):(
-        <Navigate to="/logon" replace state = {{from: location}}/>
+        <Navigate to="/login" replace state = {{from: location}}/>
     );
 };
 
@@ -19,6 +19,6 @@ export const AdminRoute  = ({element: Component}) =>{
     return ApiService.isAdmin() ?(
         Component
     ):(
-        <Navigate to="/logon" replace state = {{from: location}}/>
+        <Navigate to="/FAQ" replace state = {{from: location}}/>
     );
 };

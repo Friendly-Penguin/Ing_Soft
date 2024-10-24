@@ -44,21 +44,21 @@ export default class ApiService{
 
     /* This is used by a user to add a new question */
     static async addQuestion(formData){
-        const result = await axios.post(`/FAQ/add`, formData);
+        const result = await axios.post(`/question/add`, formData);
         return result.data
     }
 
     /* This is used to retrive all the question made by a specific user */
     static async getAllUserQuestion(userID){
-        const result = await axios.get(`/FAQ/question/${userID}`, {headers: this.getHeader()})
+        const result = await axios.get(`/question/question/${userID}`, {headers: this.getHeader()})
         return result.data
     }
 
-/* FAQ section */
+/* QUESTION section */
 
     /* This is used to retrive all the answered question */
     static async getAllAnsweredQuestion(){
-        const result = await axios.get(`/FAQ/all`)
+        const result = await axios.get(`/question/all`)
         return result.data
     }
 
@@ -66,8 +66,26 @@ export default class ApiService{
 
     /* This is used to retrive all the answered without an answer */
     static async getAllNotAnsweredQuestion(){
-        const result = await axios.get(`/FAQ/all-not-answered`)
+        const result = await axios.get(`/question/all-not-answered`)
         return result.data
+    }
+
+/* CATEGORY section */
+
+    /* This is used to retrive all the category */
+    static async getAllCategories(){
+        const result = await axios.get(`/all`)
+        return result.data
+    }
+
+    /* This is used to add a new category */
+    static async addCategory(categoryType){
+        const response = await axios.post(`/add`, categoryType, {headers: this.getHeader()})
+    }
+
+    /* This is used to remove a category */
+    static async removeCategory(categoryID){
+        const response = await axios.get(`/user/delete/${categoryID}`,{headers: this.getHeader()})
     }
 
 /**AUTHENTICATION CHECKER */

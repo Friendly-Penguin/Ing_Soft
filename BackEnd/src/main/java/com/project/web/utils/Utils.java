@@ -2,8 +2,10 @@ package com.project.web.utils;
 
 import com.project.web.dto.QuestionDTO;
 import com.project.web.dto.UserDTO;
+import com.project.web.dto.CategoryDTO;
 import com.project.web.model.Question;
 import com.project.web.model.User;
+import com.project.web.model.Categoria;
 
 import java.security.SecureRandom;
 import java.util.List;
@@ -25,26 +27,13 @@ public class Utils {
         return stringBuilder.toString();
     }
 
+
     public static UserDTO mapUserEntityToUserDTO(User user) {
         UserDTO userDTO = new UserDTO();
         userDTO.setId(user.getId());
         userDTO.setName(user.getName());
         userDTO.setEmail(user.getEmail());
         userDTO.setRole(user.getRole());
-
-        return userDTO;
-    }
-
-    public static UserDTO mapUserEntityToUserDTOAndUserQuestion(User user) {
-        UserDTO userDTO = new UserDTO();
-        userDTO.setId(user.getId());
-        userDTO.setName(user.getName());
-        userDTO.setEmail(user.getEmail());
-        userDTO.setRole(user.getRole());
-
-        if(!user.getQuestions().isEmpty()){
-            userDTO.setQuestions(user.getQuestions().stream().map(Utils::mapQuestionEntityToQuestionDTO).collect(Collectors.toList()));
-        }
 
         return userDTO;
     }
@@ -56,9 +45,17 @@ public class Utils {
         questionDTO.setTitle(question.getTitle());
         questionDTO.setContent(question.getContent());
         questionDTO.setAnswered(question.getAnswered().toString());
-        questionDTO.setCategory(question.getCategory());
+        questionDTO.setCategory(question.getCategory().getId());
         questionDTO.setUserID(question.getUser().getId());
         return questionDTO;
+    }
+
+    public static CategoryDTO mapCategoryEntityToCategoryDTO(Categoria category) {
+        CategoryDTO categoryDTO = new CategoryDTO();
+
+        categoryDTO.setId(category.getId());
+        categoryDTO.setType(category.getType());
+        return categoryDTO;
     }
 
     public static List<UserDTO> mapUserEntityToUserDTOList(List<User> userList) {
@@ -69,6 +66,9 @@ public class Utils {
         return questionList.stream().map(Utils::mapQuestionEntityToQuestionDTO).collect(Collectors.toList());
     }
 
+    public static List<CategoryDTO> mapCategoryEntityToCategoryDTOList(List<Categoria> categoryList) {
+        return categoryList.stream().map(Utils::mapCategoryEntityToCategoryDTO).collect(Collectors.toList());
+    }
 
 
 

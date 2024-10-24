@@ -22,9 +22,6 @@ public class Question {
     @Size(max = 300, message = "Max 300 characters")
     private String content;
     @NotNull
-    @Size(max = 300, message = "Max 300 characters")
-    private String category;
-    @NotNull
     @Column(name = "answered", nullable = false, columnDefinition = "BOOLEAN DEFAULT false")
     private Boolean answered = false;
 
@@ -32,4 +29,9 @@ public class Question {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id", foreignKey = @ForeignKey(name = "FK_QUESTION_USER"))
     private User user;
+
+    @NotNull
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "categ_id", foreignKey = @ForeignKey(name = "FK_QUESTION_CATEGORY"))
+    private Categoria category;
 }

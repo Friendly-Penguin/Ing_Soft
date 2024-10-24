@@ -5,7 +5,7 @@ import com.project.web.dto.Response;
 import com.project.web.dto.UserDTO;
 import com.project.web.exception.CustomExcept;
 import com.project.web.model.User;
-import com.project.web.repo.UserRepo;
+import com.project.web.repo.UserRep;
 import com.project.web.service.interfac.IUserService;
 import com.project.web.utils.JWTUtils;
 import com.project.web.utils.Utils;
@@ -21,7 +21,7 @@ import java.util.List;
 public class UserService implements IUserService {
 
     @Autowired
-    private UserRepo userRepo;
+    private UserRep userRep;
 
     @Autowired
     private PasswordEncoder passwordEncoder;
@@ -44,12 +44,12 @@ public class UserService implements IUserService {
                 user.setRole("USER");
             }
 
-            if(userRepo.existsByEmail(user.getEmail())){
+            if(userRep.existsByEmail(user.getEmail())){
                 throw new CustomExcept(user.getEmail() + "Already Exist");
             }
 
             user.setPassword(passwordEncoder.encode(user.getPassword()));
-            User savedUser = userRepo.save(user);
+            User savedUser = userRep.save(user);
             UserDTO userDTO = Utils.mapUserEntityToUserDTO(savedUser);
             response.setStatusCode(200);
             response.setUser(userDTO);
@@ -74,7 +74,7 @@ public class UserService implements IUserService {
 
         try{
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginUser.getEmail(), loginUser.getPassword()));
-            var user = userRepo.findByEmail(loginUser.getEmail()).orElseThrow(() -> new CustomExcept("User not Found"));
+            var user = userRep.findByEmail(loginUser.getEmail()).orElseThrow(() -> new CustomExcept("User not Found"));
             var token = jwtUtils.generateToken(user);
             response.setStatusCode(200);
             response.setToken(token);
@@ -102,7 +102,7 @@ public class UserService implements IUserService {
         Response response = new Response();
 
         try{
-            List<User> users = userRepo.findAll();
+            List<User> users = userRep.findAll();
             List<UserDTO> userDTOList = Utils.mapUserEntityToUserDTOList(users);
 
 
@@ -119,41 +119,14 @@ public class UserService implements IUserService {
     }
 
     @Override
-    public Response getUserQuestion(String userID) {
-
-        Response response = new Response();
-
-        try{
-
-            User user = userRepo.findById(Long.valueOf(userID)).orElseThrow(() -> new CustomExcept("User not Found"));
-            UserDTO userDTO = Utils.mapUserEntityToUserDTOAndUserQuestion(user);
-            response.setStatusCode(200);
-            response.setMessage("successfull");
-            response.setUser(userDTO);
-
-        }catch (CustomExcept ex){
-
-            response.setStatusCode(404);
-            response.setMessage(ex.getMessage());
-        }catch (Exception e){
-
-            response.setStatusCode(500);
-            response.setMessage("Error in User question retriving: " + e.getMessage());
-        }
-
-
-        return response;
-    }
-
-    @Override
     public Response deleteUser(String userID) {
 
         Response response = new Response();
 
         try{
 
-            userRepo.findById(Long.valueOf(userID)).orElseThrow(() -> new CustomExcept("User not Found"));
-            userRepo.deleteById(Long.valueOf(userID));
+            userRep.findById(Long.valueOf(userID)).orElseThrow(() -> new CustomExcept("User not Found"));
+            userRep.deleteById(Long.valueOf(userID));
             response.setStatusCode(200);
             response.setMessage("successfull");
 
@@ -177,19 +150,18 @@ public class UserService implements IUserService {
     public Response getUserByID(String userID) {
 
         Response response = new Response();
-
         try{
 
-            User user = userRepo.findById(Long.valueOf(userID)).orElseThrow(() -> new CustomExcept("User not Found"));
+            User user = userRep.findById(Long.valueOf(userID)).orElseThrow(() -> new CustomExcept("User not Found"));
             UserDTO userDTO = Utils.mapUserEntityToUserDTO(user);
             response.setStatusCode(200);
-            response.setMessage("successfull");
             response.setUser(userDTO);
 
         }catch (CustomExcept ex){
 
             response.setStatusCode(404);
             response.setMessage(ex.getMessage());
+
         }catch (Exception e){
 
             response.setStatusCode(500);
@@ -207,7 +179,7 @@ public class UserService implements IUserService {
 
         try{
 
-            User user = userRepo.findByEmail(email).orElseThrow(() -> new CustomExcept("User not Found"));
+            User user = userRep.findByEmail(email).orElseThrow(() -> new CustomExcept("User not Found"));
             UserDTO userDTO = Utils.mapUserEntityToUserDTO(user);
             response.setStatusCode(200);
             response.setMessage("successfull");
@@ -226,4 +198,5 @@ public class UserService implements IUserService {
 
         return response;
     }
+
 }
